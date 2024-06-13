@@ -78,7 +78,7 @@ export default function TabOneScreen() {
 
 
      {/* <CategoryItem /> */}
-     <ColumnList list={categoryList}/>
+     <ColumnList list={categoryList} Component={CategoryItem}/>
       
     </ScrollView>
   );

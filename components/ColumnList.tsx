@@ -1,7 +1,7 @@
 import { FlatList, View } from 'react-native'
 import CategoryItem from './CategoryItem'
 
-const ColumnList = ({list}) => {
+const ColumnList = ({list, Component}) => {
 
 
 
@@ -9,10 +9,11 @@ const ColumnList = ({list}) => {
         <View>
 
             <FlatList
+            style={{width : '100%'}}
             scrollEnabled={false}
             data={list}
             numColumns={2}
-            renderItem={({item}) => <CategoryItem {...item}/>}
+            renderItem={({item}) => <Component {...item}/>}
             />
 
             

@@ -58,9 +58,16 @@ export default function TabLayout() {
       <Tabs.Screen
         name="two"
         options={{
-          title: 'Tab Two',
+          title: '',
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          headerLeft: () => (
+            <Text style={{paddingLeft : 20}}>
+                <MontSerratSemiBoldText style={{fontSize : 28}}>Discover</MontSerratSemiBoldText>
+            </Text>
+            
+          )
         }}
+        
       />
     </Tabs>
   );
