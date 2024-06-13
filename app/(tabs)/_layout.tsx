@@ -1,11 +1,16 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
+import { FontAwesome5 } from '@expo/vector-icons';
 import { Link, Tabs } from 'expo-router';
-import { Pressable } from 'react-native';
+import { Pressable, Image } from 'react-native';
 
 import Colors from '@/constants/Colors';
 import { useColorScheme } from '@/components/useColorScheme';
 import { useClientOnlyValue } from '@/components/useClientOnlyValue';
+import { MontSerratSemiBoldText} from '@/components/StyledText.tsx'
+import {View, Text} from 'react-native'
+import { green} from '@/constants/Colors.ts'
+
 
 // You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
 function TabBarIcon(props: {
@@ -29,22 +34,25 @@ export default function TabLayout() {
       <Tabs.Screen
         name="index"
         options={{
-          title: 'Tab One',
+          title: "",
           tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           headerRight: () => (
-            <Link href="/modal" asChild>
-              <Pressable>
-                {({ pressed }) => (
-                  <FontAwesome
-                    name="info-circle"
-                    size={25}
-                    color={Colors[colorScheme ?? 'light'].text}
-                    style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
-                  />
-                )}
-              </Pressable>
-            </Link>
+            <View style={{flexDirection : 'row', alignItems :'center', paddingRight : 20}}>
+               <FontAwesome5 name='bell' size= {20} color={'white'}/>
+               <Image
+        style={{width : 30, height : 30,}}
+        source={{uri: 'https://reactnative.dev/img/tiny_logo.png',}}
+      />
+            </View>
+         
           ),
+          headerLeft: () => (
+            <Text style={{paddingLeft : 20}}>
+                <MontSerratSemiBoldText style={{fontSize : 28}}>Moo</MontSerratSemiBoldText>
+                <MontSerratSemiBoldText style={{fontSize : 28, color : '#07B603'}}>sic</MontSerratSemiBoldText>
+            </Text>
+            
+          )
         }}
       />
       <Tabs.Screen
